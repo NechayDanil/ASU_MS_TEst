@@ -26,7 +26,7 @@ export class addCariage {
   }
 
   async arrow(name: string) {
-    await this.arrowDropDown.selectOption(name);
+    await this.arrowDropDown.selectInstOption(name);
   }
 
   async carrier(name: string) {
@@ -38,7 +38,7 @@ export class addCariage {
   }
 
   async subdiv(name: string) {
-    await this.subdivDropDawn.selectOption(name);
+    await this.subdivDropDawn.selectSegmentOption(name);
   }
 
   async subdivMVPS(name: string) {
