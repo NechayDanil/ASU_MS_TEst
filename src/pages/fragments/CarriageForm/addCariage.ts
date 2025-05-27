@@ -2,13 +2,10 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { SharedSelectors } from '../../components/CommonElement';
 import { Page, expect } from '@playwright/test';
-// import { GlobalMetod } from '../../components/CommonMetod';
 
 export class addCariage {
-  private readonly shared: SharedSelectors;
-  constructor(private page: Page) {
-    this.shared = new SharedSelectors(page);
-  }
+  private shared = new SharedSelectors(this.page);
+  constructor(private page: Page) {}
 
   private addInput = new Button(this.page.getByTestId('carriageGroupList.add'));
   private createCarriage = new Button(this.page.getByTestId('saveWagonGroup'));
@@ -20,6 +17,8 @@ export class addCariage {
   private subdivDropDawnMvps = new Input(
     this.page.getByTestId('autocomplete-mvps-company-affiliation'),
   );
+  private NPSButton = new Button(this.shared.carriageNPSIcon);
+  private MVPSButton = new Button(this.shared.carriageMVPSIcon);
 
   async clickInputAdd() {
     await this.addInput.click();
@@ -50,15 +49,11 @@ export class addCariage {
   }
 
   async selectNPS() {
-    const carriageButtonNPS = this.shared.buttons.carriageNPSIcon;
-    await expect(carriageButtonNPS).toBeVisible();
-    await carriageButtonNPS.click();
+    await this.NPSButton.click();
   }
 
   async selectMVPS() {
-    const carriageButtonMVPS = this.shared.buttons.carriageMVPSIcon;
-    await expect(carriageButtonMVPS).toBeVisible();
-    await carriageButtonMVPS.click();
+    await this.MVPSButton.click();
   }
 
   async create() {

@@ -14,7 +14,7 @@ export class carriageAddFlow {
     await this.addPageCariage.carrierDown(addEmptygroup.passengerCarriers);
     await this.addPageCariage.branchDown(addEmptygroup.autocompleteBranch);
     await this.addPageCariage.subdivDown(addEmptygroup.structuralSubdivision);
-    // await this.addPageCariage.createButton();
+    await this.addPageCariage.createButton();
   }
 
   async addCarriageMVPS() {
