@@ -7,22 +7,15 @@ export class addCariage {
   private shared = new SharedSelectors(this.page);
   constructor(private page: Page) {}
 
-  private addInput = new Button(this.page.getByTestId('carriageGroupList.add'));
   private createCarriage = new Button(this.page.getByTestId('saveWagonGroup'));
   private nameCariage = new Input(this.page.getByTestId('name').locator('input'));
-  private arrowDropDown = new Input(this.page.getByTestId('autocomplete-railway-administration'));
-  private carrierDropDown = new Input(this.page.getByTestId('autocomplete-passenger-carrier'));
-  private branchDropDown = new Input(this.page.getByTestId('autocomplete-branch'));
-  private subdivDropDawn = new Input(this.page.getByTestId('autocomplete-structural-subdivision'));
-  private subdivDropDawnMvps = new Input(
-    this.page.getByTestId('autocomplete-mvps-company-affiliation'),
-  );
+  private arrowDropDown = new Input(this.shared.arrowDropDown);
+  private carrierDropDown = new Input(this.shared.carrierDropDown);
+  private branchDropDown = new Input(this.shared.branchDropDown);
+  private subdivDropDawn = new Input(this.shared.subdivDropDawn);
+  private subdivDropDawnMvps = new Input(this.shared.subdivDropDawnMvps);
   private NPSButton = new Button(this.shared.carriageNPSIcon);
   private MVPSButton = new Button(this.shared.carriageMVPSIcon);
-
-  async clickInputAdd() {
-    await this.addInput.click();
-  }
 
   async arrow(name: string) {
     await this.arrowDropDown.selectInstOption(name);

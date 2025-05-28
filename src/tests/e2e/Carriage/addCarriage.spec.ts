@@ -8,6 +8,7 @@ test('Добавление группы NPS', async ({ page }) => {
   await entry.executeAsAdmin();
   await expect(page).toHaveURL('/');
   await createNPS.addCariageNPS();
+  await expect(page.getByText('НаименованиеАвтотестНПС')).toBeVisible();
 });
 
 test('Добавление группы MVPS', async ({ page }) => {
@@ -16,4 +17,5 @@ test('Добавление группы MVPS', async ({ page }) => {
   await entry.executeAsAdmin();
   await expect(page).toHaveURL('/');
   await createMVPS.addCarriageMVPS();
+  await expect(page.getByText('НаименованиеАвтотестМВПС')).toBeVisible();
 });

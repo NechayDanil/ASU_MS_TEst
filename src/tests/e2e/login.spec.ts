@@ -6,11 +6,11 @@ import { carriageAddFlow } from '../../pages/flows/CarriageFlows/addCarriageflow
 test('Админ входит в систему', async ({ page }) => {
   const entry = new AuthFlow(page);
   const iconsNews = new SharedSelectors(page);
-  const Car = new carriageAddFlow(page);
+  const carriageFlow = new carriageAddFlow(page);
   await entry.executeAsAdmin();
   await expect(page).toHaveURL('/');
-  await expect(iconsNews.icons.news).toBeVisible();
-  await Car.addCariageNPS();
+  await expect(iconsNews.news).toBeVisible();
+  await carriageFlow.addCariageNPS();
 });
 
 test('Проверка иных кнопок формы', async ({ page }) => {

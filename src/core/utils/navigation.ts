@@ -12,6 +12,6 @@ export class Navigator {
 
   async expectUrlToBe(urlKey: keyof typeof URLs) {
     const expectedPath = URLs[urlKey];
-    await expect(this.page).toHaveURL(new RegExp(`${expectedPath}(?:\\?|$)`));
+    await expect(this.page).toHaveURL(expectedPath);
   }
 }

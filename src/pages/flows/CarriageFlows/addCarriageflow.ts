@@ -8,7 +8,6 @@ export class carriageAddFlow {
 
   async addCariageNPS() {
     await this.addPageCariage.openCarriageList();
-    await this.addPageCariage.addClick();
     await this.addPageCariage.fillName(addEmptygroup.name);
     await this.addPageCariage.arrowDown(addEmptygroup.railwayAdministration);
     await this.addPageCariage.carrierDown(addEmptygroup.passengerCarriers);
@@ -19,7 +18,6 @@ export class carriageAddFlow {
 
   async addCarriageMVPS() {
     await this.addPageCariage.openCarriageList();
-    await this.addPageCariage.addClick();
     await this.addPageCariage.clickMVPS();
     await this.addPageCariage.fillName(addEmptygroup.nameMVPS);
     await this.addPageCariage.arrowDown(addEmptygroup.railwayAdministration);

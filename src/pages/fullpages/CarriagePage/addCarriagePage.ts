@@ -10,10 +10,6 @@ export class addCariageForm {
     this.navigator = new Navigator(page);
   }
 
-  async addClick() {
-    await this.formaCarriage.clickInputAdd();
-  }
-
   async clickNPS() {
     await this.formaCarriage.selectNPS();
   }
@@ -52,9 +48,9 @@ export class addCariageForm {
 
   async openCarriageList() {
     // 1. Переход по URL
-    await this.navigator.goTo('CARRIAGE_PLANNING');
+    await this.navigator.goTo('CARRIAGE_ADD');
 
     // 2. Проверка что URL корректный
-    await this.navigator.expectUrlToBe('CARRIAGE_PLANNING');
+    await this.navigator.expectUrlToBe('CARRIAGE_ADD');
   }
 }
